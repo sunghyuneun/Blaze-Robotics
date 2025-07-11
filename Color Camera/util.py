@@ -14,3 +14,4 @@ def get_limits(colour):
     upperLimit = numpy.array(upperLimit, dtype = numpy.uint8)
 
     return lowerLimit, upperLimit
+

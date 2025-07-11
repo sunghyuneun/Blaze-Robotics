@@ -3,6 +3,7 @@ import numpy
 from PIL import Image
 from util import get_limits
 
+
 yellow = [0, 255, 255] #yellow in RGB
 blue = [255, 0, 0]
 greenLowerLimit = numpy.array([25, 52, 72], dtype=numpy.uint8)
@@ -56,6 +57,7 @@ while True:
     
     cv2.imshow('Frame', frame)
 
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
@@ -63,3 +65,4 @@ while True:
 cap.release()
 
 cv2.destroyAllWindows()
+
