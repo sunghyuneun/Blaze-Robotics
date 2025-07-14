@@ -54,6 +54,7 @@ while True:
 
     redMask = cv2.inRange(hsvImage, redLowerLimit1, redUpperLimit1) + cv2.inRange(hsvImage, redLowerLimit2, redUpperLimit2)
     cleanRedMask = cv2.morphologyEx(redMask, cv2.MORPH_OPEN, kernel)
+    cleanRedMask = cv2.morphologyEx(cleanRedMask, cv2.MORPH_CLOSE, kernel)
     redMaskPil = Image.fromarray(cleanRedMask)
     redBbox = redMaskPil.getbbox()
     if redBbox is not None:
