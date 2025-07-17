@@ -2,9 +2,14 @@ import cv2
 import numpy
 from PIL import Image
 
-redLowerLimit1 = numpy.array([0, 120, 120], dtype=numpy.uint8)
-redUpperLimit1 = numpy.array([10, 255, 255], dtype=numpy.uint8)
-redLowerLimit2 = numpy.array([160, 120, 120], dtype=numpy.uint8)
+redHmax = 10
+redHmin = 160
+redSmin = 180
+redVmin = 120
+
+redLowerLimit1 = numpy.array([0, redSmin, redVmin], dtype=numpy.uint8)
+redUpperLimit1 = numpy.array([redHmax, 255, 255], dtype=numpy.uint8)
+redLowerLimit2 = numpy.array([redHmin, redSmin, redVmin], dtype=numpy.uint8)
 redUpperLimit2 = numpy.array([179, 255, 255], dtype=numpy.uint8)
 
 cap = cv2.VideoCapture(0)
@@ -19,8 +24,18 @@ while True:
     hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     redMask = cv2.inRange(hsvImage, redLowerLimit1, redUpperLimit1) + cv2.inRange(hsvImage, redLowerLimit2, redUpperLimit2)
-    cleanRedMask = cv2.morphologyEx(redMask, cv2.MORPH_OPEN, kernel)
+    
+    cleanRedMask = cv2.erode(redMask,kernel)
+    cleanRedMask = cv2.morphologyEx(cleanRedMask, cv2.MORPH_OPEN, kernel)
+    cleanRedMask = cv2.dilate(cleanRedMask,kernel)
     cleanRedMask = cv2.morphologyEx(cleanRedMask, cv2.MORPH_CLOSE, kernel)
+    '''
+    cleanRedMask = cv2.dilate(redMask,kernel)
+    cleanRedMask = cv2.morphologyEx(cleanRedMask, cv2.MORPH_CLOSE, kernel)
+    cleanRedMask = cv2.erode(cleanRedMask,kernel)
+    cleanRedMask = cv2.morphologyEx(cleanRedMask, cv2.MORPH_OPEN, kernel)
+    '''
+
     redMaskPil = Image.fromarray(cleanRedMask)
     redBbox = redMaskPil.getbbox()
     if redBbox is not None:
