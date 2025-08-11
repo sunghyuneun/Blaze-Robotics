@@ -13,7 +13,7 @@ redUpperLimit1 = numpy.array([10, 255, 255], dtype=numpy.uint8)
 redLowerLimit2 = numpy.array([160, 100, 100], dtype=numpy.uint8)
 redUpperLimit2 = numpy.array([179, 255, 255], dtype=numpy.uint8)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 while True:
     ret, frame = cap.read()
