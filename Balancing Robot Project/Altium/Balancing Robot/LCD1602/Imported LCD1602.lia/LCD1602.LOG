@@ -1,0 +1,40 @@
+PCAD Importer Log
+Project : LCD1602.LibPkg
+
+Section : E:\E Downloads\Blaze-Robotics\Balancing Robot Project\Altium\Balancing Robot\LCD1602\LCD1602.lia
+    Section : PCB Library - LCD1602.PcbLib
+        Section : Load Messages
+            Warning - 1 : Skipping Token isVisible On Line 146
+            Warning - 1 : Skipping Token LCD_4PIN On Line 151
+            Warning - 1 : Skipping Token attachedSymbol On Line 216
+            Warning - 1 : Skipping Token 4 On Line 219
+            Warning - 1 : Skipping Token 3 On Line 221
+            Warning - 1 : Skipping Token 2 On Line 223
+            Warning - 1 : Skipping Token 1 On Line 225
+        EndSection
+
+        Section : Import Messages
+            Warning - 0 : PCAD Pattern Graphics [*XH_4PIN][Primary] associated with PCAD Component [LCD1602] has been renamed to PCB FootPrint [*XH_4PIN_LCD1602(Primary)].
+        EndSection
+    EndSection
+
+    Section : SCH Library - LCD1602.SchLib
+        Section : Parsing Messages
+            Warning - 1 : Skipping Token padStyleDef On Line 9
+            Warning - 1 : Skipping Token padStyleDef On Line 21
+            Warning - 1 : Skipping Token padStyleDef On Line 33
+            Warning - 1 : Skipping Token multiLayer On Line 108
+            Warning - 1 : Skipping Token layerContents On Line 114
+            Warning - 1 : Skipping Token multiLayer On Line 130
+            Warning - 1 : Skipping Token layerContents On Line 136
+            Warning - 1 : Skipping Token 4 On Line 219
+            Warning - 1 : Skipping Token 3 On Line 221
+            Warning - 1 : Skipping Token 2 On Line 223
+            Warning - 1 : Skipping Token 1 On Line 225
+        EndSection
+
+        Section : Generating SCH Library - LCD1602.SchLib
+            Warning - 0 : PCAD Pattern Graphics [*XH_4PIN][Primary] associated with PCAD Component [LCD1602] has been renamed to PCB FootPrint [*XH_4PIN_LCD1602(Primary)].
+        EndSection
+    EndSection
+EndSection
