@@ -44,7 +44,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "PID", sf::Style::Default, sf::State::Windowed);
     
     //Makes the PID object with kp, ki, kd
-    PID pidObject(.5, 0.01, 0.05);
+    //PID pidObject(.5, 0.01, 0.05);
+    PID pidObject(2, 0.1, 1);
 
     //Initial Pos, vel, etc
     float pos = 400.0;
@@ -72,8 +73,8 @@ int main()
 
             else if (const auto* keyPressed = event->getIf < sf::Event::KeyPressed >()) {
                 if (keyPressed->scancode == sf::Keyboard::Scancode::Space) {
-                    vel += 100;
-                    //pos += 200;
+                    //vel += 100;
+                    pos += 1000;
                 }
                 else if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) window.close();
             }
