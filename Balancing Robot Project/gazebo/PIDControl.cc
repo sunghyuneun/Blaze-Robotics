@@ -17,8 +17,18 @@ class PID{
         double calculate(double setpoint, double measured_value, double dt) {
             double error = setpoint - measured_value;
             integral += error * dt;
+            double limit = 10.0;
+            if (ki * integral > limit) {
+                integral = limit/ki;
+                std::cout << "Integral limit reached!" << std::endl;
+            }
+            else if (ki* integral < -limit) {
+                integral = -limit / ki;
+                std::cout << "Integral limit reached!" << std::endl;
+            }
             double derivative = (error - prev_error) / dt;
             prev_error = error;
+            std::cout << "KP: " << kp * error << " KI: " << ki * integral << " KD: " << kd * derivative << std::endl;
             return -1.0 * (kp * error + ki * integral + kd * derivative);
         }
 };
@@ -27,7 +37,7 @@ class PID{
 void cb(const gz::msgs::IMU &_msg);
 
 
-PID pid(0.7, 0.0, 0.5);
+PID pid(6, 15, 0.25);
 gz::transport::Node node;
 std::string subscribeTopic = "/imu";
 std::string publishTopic = "/balanceVel";
