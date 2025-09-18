@@ -1,3 +1,0 @@
-/home/vboxuser/VMGithub/gazebo_ws/selfBalance/build/CMakeFiles/PIDControl.dir
-/home/vboxuser/VMGithub/gazebo_ws/selfBalance/build/CMakeFiles/edit_cache.dir
-/home/vboxuser/VMGithub/gazebo_ws/selfBalance/build/CMakeFiles/rebuild_cache.dir
